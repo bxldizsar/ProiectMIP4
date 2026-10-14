@@ -33,9 +33,12 @@
             this.btnBack = new System.Windows.Forms.ToolStripButton();
             this.btnForward = new System.Windows.Forms.ToolStripButton();
             this.btnHome = new System.Windows.Forms.ToolStripButton();
-            this.btnGo = new System.Windows.Forms.ToolStripButton();
             this.txtUrl = new System.Windows.Forms.ToolStripTextBox();
+            this.btnGo = new System.Windows.Forms.ToolStripButton();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.txtKeyword = new System.Windows.Forms.TextBox();
+            this.btnAddKeyword = new System.Windows.Forms.Button();
+            this.cmbKeywords = new System.Windows.Forms.ComboBox();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,6 +86,12 @@
             this.btnHome.Text = "Home";
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
+            // txtUrl
+            // 
+            this.txtUrl.Name = "txtUrl";
+            this.txtUrl.Size = new System.Drawing.Size(500, 25);
+            this.txtUrl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUrl_KeyDown);
+            // 
             // btnGo
             // 
             this.btnGo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -93,30 +102,56 @@
             this.btnGo.Text = "Go";
             this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
             // 
-            // txtUrl
-            // 
-            this.txtUrl.Name = "txtUrl";
-            this.txtUrl.Size = new System.Drawing.Size(500, 25);
-            this.txtUrl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUrl_KeyDown);
-            // 
             // webBrowser1
             // 
             this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.webBrowser1.Location = new System.Drawing.Point(0, 25);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.ScriptErrorsSuppressed = true;
             this.webBrowser1.Size = new System.Drawing.Size(884, 425);
             this.webBrowser1.TabIndex = 1;
+            this.webBrowser1.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.webBrowser1_Navigating);
+            // 
+            // txtKeyword
+            // 
+            this.txtKeyword.Location = new System.Drawing.Point(383, 138);
+            this.txtKeyword.Name = "txtKeyword";
+            this.txtKeyword.Size = new System.Drawing.Size(120, 20);
+            this.txtKeyword.TabIndex = 2;
+            // 
+            // btnAddKeyword
+            // 
+            this.btnAddKeyword.Location = new System.Drawing.Point(404, 191);
+            this.btnAddKeyword.Name = "btnAddKeyword";
+            this.btnAddKeyword.Size = new System.Drawing.Size(75, 23);
+            this.btnAddKeyword.TabIndex = 3;
+            this.btnAddKeyword.Text = "Add";
+            this.btnAddKeyword.UseVisualStyleBackColor = true;
+            this.btnAddKeyword.Click += new System.EventHandler(this.btnAddKeyword_Click);
+            // 
+            // cmbKeywords
+            // 
+            this.cmbKeywords.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbKeywords.FormattingEnabled = true;
+            this.cmbKeywords.Location = new System.Drawing.Point(682, 47);
+            this.cmbKeywords.Name = "cmbKeywords";
+            this.cmbKeywords.Size = new System.Drawing.Size(150, 21);
+            this.cmbKeywords.TabIndex = 4;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 450);
+            this.Controls.Add(this.cmbKeywords);
+            this.Controls.Add(this.btnAddKeyword);
+            this.Controls.Add(this.txtKeyword);
             this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -133,6 +168,9 @@
         private System.Windows.Forms.ToolStripTextBox txtUrl;
         private System.Windows.Forms.ToolStripButton btnGo;
         private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.TextBox txtKeyword;
+        private System.Windows.Forms.Button btnAddKeyword;
+        private System.Windows.Forms.ComboBox cmbKeywords;
     }
 }
 
